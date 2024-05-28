@@ -15,10 +15,22 @@
         android:textStyle="bold|italic"
         android:textSize="16sp"
         android:textAllCaps="true"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nombre"
+        android:textColorHint="@color/material_dynamic_primary60"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="412dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
