@@ -3,9 +3,11 @@ package com.example.clase01
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import java.lang.reflect.Type
 
 class MainActivity : AppCompatActivity() {
@@ -36,5 +38,19 @@ class MainActivity : AppCompatActivity() {
         }
         }
 
+        //mensaje de error para edit text vacios
+        var etEjemplo = findViewById<EditText>(R.id.etEjemplo)
+        etEjemplo.apply {
+            addTextChangedListener{
+                if(etEjemplo.text.length == 0)
+                    etEjemplo.setError("Campos Vacíos")
+            }
+        }
+        etEjemplo.setSelection(3)
+        var inicio = etEjemplo.selectionStart
+        var fin = etEjemplo.selectionEnd
+        etEjemplo.selectAll()
     }
+
+
 }

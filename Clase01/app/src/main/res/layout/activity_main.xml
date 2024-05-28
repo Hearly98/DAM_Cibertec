@@ -23,14 +23,22 @@
         />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/etEjemplo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/style_et_bg"
+        android:digits="0123456789 "
         android:ems="10"
-        android:hint="Nombre"
-        android:textColorHint="@color/material_dynamic_primary60"
+        android:gravity="center"
+        android:hint="Correo Electrónico"
+        android:drawableStart="@drawable/vector_email"
+        android:padding="10dp"
+        android:paddingStart="10dp"
+        android:inputType="textCapSentences|textAutoCorrect"
+        android:textColorHighlight="@color/material_dynamic_secondary30"
+        android:textColor="@color/material_dynamic_neutral10"
         tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="412dp"
+        tools:layout_editor_absoluteY="406dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
