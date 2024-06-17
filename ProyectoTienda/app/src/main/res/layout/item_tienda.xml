@@ -20,6 +20,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Nombre de la Tienda"
+            android:background="@color/white_t"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/cbFavorite"
             android:layout_width="wrap_content"
