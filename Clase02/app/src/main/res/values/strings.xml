@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Clase02</string>
+    <string-array name="arregloPaisesA">
+        <item>Afganistán</item>
+        <item>Argentina</item>
+        <item>Argelia</item>
+        <item>Alemania</item>
+        <item>Australia</item>
+        <item>Albania</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+    </string-array>
+</resources>
