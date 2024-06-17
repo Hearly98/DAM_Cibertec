@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ProyectoTienda</string>
+    <string name="description_img_photo">Imagen de la Tienda</string>
 </resources>
