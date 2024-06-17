@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cibertec.proyectotienda.databinding.ItemTiendaBinding
 //Agregamos variables
-class StoreAdapter (private var stores: MutableList<Store>,
+class StoreAdapter (private var stores: MutableList<StoreEntity>,
                     private var listener: OnClickListener):
                     RecyclerView.Adapter<StoreAdapter.ViewHolder>(){
 
@@ -26,19 +26,40 @@ class StoreAdapter (private var stores: MutableList<Store>,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         //creamos una constante
-        val store = stores[position]
+        val store = stores.get(position)
         //Trabajamos con este objeto
         with(holder){
             setListener(store)
             //Trabajando por ahora con el nombre de la tienda
             binding.tvName.text = store.name
+            binding.cbFavorite.isChecked = store.isFavorite
         }
     }
     //Nos dará la cantidad de fragmentos en el padre
     override fun getItemCount(): Int = stores.size
-        fun add(store:Store){
-            stores.add(store)
+
+        fun setStores(stores:MutableList<StoreEntity>){
+            this.stores = stores
             notifyDataSetChanged()
+        }
+        fun add(storeEntity:StoreEntity){
+            stores.add(storeEntity)
+            notifyDataSetChanged()
+        }
+
+        fun update(storeEntity : StoreEntity){
+            val index = stores.indexOf(storeEntity)
+            if(index != -1){
+                stores.set(index, storeEntity)
+                notifyItemChanged(index)
+            }
+        }
+        fun delete(storeEntity: StoreEntity){
+            val index = stores.indexOf(storeEntity)
+            if(index != -1){
+                stores.removeAt(index)
+                notifyItemRemoved(index)
+            }
         }
     /*Crear una clase interna Inner Class ViewHolder que recibirá una vista view tipo View.Luego
 * se hereda de recyclerView.
@@ -51,9 +72,19 @@ class StoreAdapter (private var stores: MutableList<Store>,
         val binding = ItemTiendaBinding.bind(view)
         /*Creamos nuestro listener para vincular nuestro ViewHolder.
         * Crearemos una funcion setListener para que reciba la tienda*/
-        fun setListener(store: Store){
+        fun setListener(storeEntity: StoreEntity){
+
             //Configurando el evento más basico
-            binding.root.setOnClickListener{ listener.onClick(store)}
+            with(binding.root){
+                setOnClickListener {  listener.onClick(storeEntity) }
+                setOnLongClickListener {
+                    listener.onDeleteStore(storeEntity)
+                    true
+                }
+            }
+            binding.cbFavorite.setOnClickListener {
+                listener.onFavoriteStore(storeEntity)
+            }
         }
     }
     }
